@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190122163044) do
+ActiveRecord::Schema.define(version: 20190127150125) do
 
   create_table "authie_sessions", force: :cascade do |t|
     t.string "token"
@@ -49,10 +49,24 @@ ActiveRecord::Schema.define(version: 20190122163044) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "return_date"
+    t.boolean "returned"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

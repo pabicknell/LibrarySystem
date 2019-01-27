@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
 
   def login
     if request.post?
-      if user = User.authenticate(params[:username], params[:password])
+	if user = User.authenticate(params[:username], params[:password])
         self.current_user = user
         redirect_to root_path
       else
